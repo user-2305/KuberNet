@@ -1,4 +1,5 @@
 # KuberNet
+##Задание1
 
 Для создания образа и контейнера из Dockerfile, вам потребуется выполнить следующие шаги:
 
@@ -39,6 +40,8 @@ docker tag replica_set user2305/replica_set:v1
 ```bash
 docker push <имя_репозитория>/<имя_образа>:<тег>
 ```
+
+8. 
 Пример:
 ```bash
 docker push user2305/replica_set:v1
