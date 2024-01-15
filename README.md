@@ -46,6 +46,7 @@ docker push user2305/replica_set:v1
 ```
 
 ### Kuber
+#### Запустить кластер
 1. Перейти на платформу «Play with Kubernetes» (https://labs.play-with-k8s.com/) и зарегистрироваться.
 2. Первым шагом является инициализация кластера. Выполните на master пункт 1 из приветствия:
 ```
@@ -66,3 +67,31 @@ kubectl apply -f https://raw.githubusercontent.com/cloudnativelabs/kube-router/m
 ```
 Ваш кластер настроен!
 
+#### Деплой приложения
+Давайте развернём первое приложение в Kubernetes с помощью команды kubectl create deployment. Для этого потребуется указать имя деплоймента и путь к образу приложения (используйте полный URL репозитория для образов, которые располагаются вне Docker Hub).
+```
+kubectl create deployment kubernetes-lab1 --image=user2305/replica_set:latest
+```
+Чтобы увидеть список деплойментов, выполните команду kubectl get deployments:
+```
+kubectl get deployments
+```
+Вы увидите, что есть 1 деплоймент, в котором запущен единственный экземпляр приложения. Этот экземпляр работает в контейнере на узле кластера.
+![image](https://github.com/user-2305/KuberNet/assets/95847398/f60364ee-7ee7-41b4-a9b6-3cd9783db7ba)
+
+Далее отмасштабируем деплоймент до 3 реплик. Для этого воспользуемся командой kubectl scale, для которой укажем тип объекта (деплоймент), его название и количество желаемых экземпляров:
+```
+kubectl scale deployments/kubernetes-lab1 --replicas=3
+```
+Создадим службу типа LoadBalancer:
+```
+kubectl expose deployment/kubernetes-lab1 --type="LoadBalancer" --port=80
+```
+«Пропатчим» службу, т.к. система назначения external_IP отсутствует, назначим сами:
+```
+kubectl patch svc kubernetes-lab1  -p '{"spec": {"type": "LoadBalancer", "externalIPs":["192.166.0.10"]}}'
+```
+Проверим службу:
+```
+curl http:// 192.166.0.10
+```
