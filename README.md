@@ -68,10 +68,7 @@ kubectl apply -f https://raw.githubusercontent.com/cloudnativelabs/kube-router/m
 Ваш кластер настроен!
 
 #### Деплой приложения
-Давайте развернём первое приложение в Kubernetes с помощью команды kubectl create deployment. Для этого потребуется указать имя деплоймента и путь к образу приложения (используйте полный URL репозитория для образов, которые располагаются вне Docker Hub).
-```
-kubectl create deployment kubernetes-lab1 --image=iteration2020/virtcont3:latest
-```
+Давайте развернём первое приложение в Kubernetes с помощью команды kubectl create deployment. Для этого потребуется указать имя деплоймента и путь к образу приложения (используйте полный URL репозитория для образов, которые располагаются вне Docker Hub iteration2020/virtcont3:latest).
 ```
 kubectl create deployment kubernetes-lab1 --image=user2305/replica_set:latest
 ```
@@ -112,7 +109,7 @@ curl http:// 192.166.0.10
 kubectl create deployment kubernetes-lab1part2 --image=user2305/my_project:latest
 ```
 ```
-kubectl expose deployment/kubernetes-lab1part2 --type="NodePort " --port=80
+kubectl expose deployment/kubernetes-lab1part2 --type="NodePort" --port=80
 ```
 ```
 kubectl describe services/kubernetes-lab1part2
