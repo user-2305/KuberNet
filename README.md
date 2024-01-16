@@ -122,7 +122,6 @@ kubectl describe services/kubernetes-lab1part2
 
 ```
 curl http://192.168.0.18:30296
-
 ```
 
 ![image](https://github.com/user-2305/KuberNet/assets/95847398/a8807e24-041b-458c-a442-14a3e8f84233)
