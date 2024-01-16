@@ -70,6 +70,9 @@ kubectl apply -f https://raw.githubusercontent.com/cloudnativelabs/kube-router/m
 #### Деплой приложения
 Давайте развернём первое приложение в Kubernetes с помощью команды kubectl create deployment. Для этого потребуется указать имя деплоймента и путь к образу приложения (используйте полный URL репозитория для образов, которые располагаются вне Docker Hub).
 ```
+kubectl create deployment kubernetes-lab1 --image=iteration2020/virtcont3:latest
+```
+```
 kubectl create deployment kubernetes-lab1 --image=user2305/replica_set:latest
 ```
 Чтобы увидеть список деплойментов, выполните команду kubectl get deployments:
