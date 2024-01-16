@@ -104,3 +104,26 @@ curl http:// 192.166.0.10
 ![image](https://github.com/user-2305/KuberNet/assets/95847398/a3bf3052-e3e7-4541-92a6-662540561d6d)
 
 При включении балансера мы обращаемся к разным подам
+
+## Задание2
+### Kuber
+Давайте развернём первое приложение в Kubernetes с помощью команды kubectl create deployment. Для этого потребуется указать имя деплоймента и путь к образу приложения (используйте полный URL репозитория для образов, которые располагаются вне Docker Hub ariannauntilova/attm2:latest).
+```
+kubectl create deployment kubernetes-lab1part2 --image=user2305/my_project:latest
+```
+```
+kubectl expose deployment/kubernetes-lab1part2 --type="NodePort " --port=80
+```
+```
+kubectl describe services/kubernetes-lab1part2
+```
+
+![image](https://github.com/user-2305/KuberNet/assets/95847398/8518e6eb-7b2e-4df1-a2c8-f39111c13d59)
+
+```
+curl http://192.168.0.18:30296
+
+```
+
+![image](https://github.com/user-2305/KuberNet/assets/95847398/a8807e24-041b-458c-a442-14a3e8f84233)
+
