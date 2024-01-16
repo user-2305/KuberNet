@@ -96,3 +96,7 @@ kubectl patch svc kubernetes-lab1  -p '{"spec": {"type": "LoadBalancer", "extern
 ```
 curl http:// 192.166.0.10
 ```
+Что получаем в итоге:
+![image](https://github.com/user-2305/KuberNet/assets/95847398/887be39b-b82f-4164-8c98-bc694df0b652)
+![image](https://github.com/user-2305/KuberNet/assets/95847398/a3bf3052-e3e7-4541-92a6-662540561d6d)
+При включении балансера мы обращаемся к разным подам
