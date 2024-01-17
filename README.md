@@ -106,7 +106,7 @@ curl http:// 192.166.0.10
 ### Kuber
 Давайте развернём первое приложение в Kubernetes с помощью команды kubectl create deployment. Для этого потребуется указать имя деплоймента и путь к образу приложения (используйте полный URL репозитория для образов, которые располагаются вне Docker Hub ariannauntilova/attm2:latest).
 ```
-kubectl create deployment kubernetes-lab1part2 --image=user2305/my_project:latest
+kubectl create deployment kubernetes-lab1part2 --image=user2305/test:latest
 ```
 ```
 kubectl expose deployment/kubernetes-lab1part2 --type="NodePort" --port=80
